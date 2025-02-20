@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import java.util.*;
+
 
 @Data
 @Entity
@@ -22,5 +24,7 @@ public class College {
     private String name;
 
     private String address;
+    @OneToMany(mappedBy = "college", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Department> departments;
 
 }
